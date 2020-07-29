@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600;700&display=swap');
+
+/* Variables */
+:root {
+    --bg : #f4f5f2;
+    --sunny :#ffe634 ;
+    --cloudy : #6fceed;
+    --text-primary :#000001 ;
+    --text-secondary :#969593 ;
+    --shadow : -2px 6px 15px 7px rgba(233,233,234,1);
+
+}
+
+body {
+    background-color: var(--bg);
+    padding: 0;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+*{
+    box-sizing: border-box;
+    font-weight: 700;
+}
+
+/* For Search Bar */
+
+.search-bar {
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: none;
+    padding: 10px 15px;
+    margin: 20px 20px 10px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    color: var(--text-primary);
+}
+.search-bar:hover {
+    box-shadow:-2px 6px 22px 10px rgba(233,233,234,1); 
+}
+.search-bar form {
+    width: 100%;
+    height: 20px;
+}
+.search-bar input {
+    border:none;
+    width: 100%;
+    height: 20px;
+    font-size: 20px;
+    padding-left: 10px;
+    background-color: var(--bg);
+}
+
+.search-bar input:focus {
+    outline: none;
+}
+.search-bar img {
+    height: 24px;
+    width : 24px;
+}
+
+/* Weekly data */
+.week-container {
+    overflow-x: hidden;
+    margin: 10px 0px 10px;
+}
+.week-section {
+    width : calc(150px * 8 + 100px);
+    display: flex;
+    scrollbar-width: 1px;
+}
+.week {
+    height: 150px;
+    border-radius: 10px;
+    margin-left: 20px;
+    padding: 2px;
+    min-width: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+    color: var(--text-primary);
+    cursor: pointer;
+}
+
+.week:active {
+    border: 2px solid var(--cloudy);
+    border-radius: 0;
+}
+
+.week .weekday p {
+font-size: 15px;
+}
+.week .temp {
+    display: flex;
+}
+.week .temp p {
+    font-size: 15px;
+    margin-top: -10px;
+}
+.week .weather {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.week .weather p {
+    font-size: 13px;
+}
+
+.light {
+color: var(--text-secondary);
+}
+
+
+.week img {
+    width: 24px;
+    height: 24px;
+}
+
+
+/* Daily */
+.daily {
+    height: calc(250px + 300px + 200px + 50px);
+    margin: 0px 20px 10px;
+    padding: 20px;
+    background-color: var(--bg);
+    box-shadow: var(--shadow);
+    border-radius: 10px;
+}
+.daily .temp-degree {
+    display: flex;
+    align-items: flex-start;
+}
+.temp-degree .temp-value {
+    font-size: 100px;
+    padding: 0;
+}
+.temp-value p {
+    display: flex;
+    margin-top: -10px;
+}
+
+.temp-degree .weather-icon {
+    padding-top: 10px;
+    margin-left: 10px;
+}
+.daily .temp-degree img {
+width : 100px;
+height : 100px;
+}
+
+
+.daily .properties {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 30px;
+}
+.properties .prop {
+ font-size: 15px;
+ background-color: rgb(111, 206, 237,0.1);
+ border-radius: 3px;
+ display: flex;
+ flex-direction: column;
+ justify-content: space-between;
+ align-items: flex-start;
+ padding: 10px;
+ width: 140px;
+}
+.properties .prop p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.properties .prop div, .prop div span {
+font-weight: 600;
+}
+
+
+.daily .chart {
+    margin-top: -80px;
+    overflow-x: scroll;
+}
+.daily .temp-chart {
+    width: 2000px;
+    height: 300px;
+    scrollbar-width: 1px;
+}
+
+/* Media Query */
+@media screen and (max-width : 1250px) {
+
+
+    .week-container {
+        overflow-x: scroll;
+    }
+    
+    
+    }
+
+
+@media screen and (max-width : 700px) {
+
+
+.search-bar {
+    height: 40px;
+}
+
+.week-container {
+    overflow-x: scroll;
+}
+.week-section {
+    width: calc(100px * 8 + 100px);
+    scrollbar-width: 1px;
+}
+.week {
+    height: 150px;
+    min-width: 100px;
+}
+
+.daily .temp-degree img {
+    width : 60px;
+    height : 60px;
+    }
+
+
+.daily .temp-degree .weather-icon{
+padding-top: 2px;
+}
+.temp-degree .temp-value {
+    font-size: 60px;
+}   
+
+.daily .chart {
+    margin-top: -40px;
+}
+
+}
