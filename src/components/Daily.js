@@ -20,7 +20,7 @@ const Daily = ({dailyTemp , hourTemp}) => {
         'Squall',
         'Tornado']
 
-    if (knowWeather in atmosphere ) {
+    if (atmosphere.includes(knowWeather)) {
         source_image = "./weather-icons/foggy.svg" ;
     }
     else {
