@@ -68,6 +68,7 @@ useEffect(() => {
     // geolocation is not supported
     // get your location some other way
     console.log('geolocation is not enabled on this browser')
+    alert('Give access to your location');
     setLoading(false)
   }
 

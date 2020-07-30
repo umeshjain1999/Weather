@@ -1,9 +1,31 @@
 import React from 'react';
-import sunny from './icons/sunny.svg';
+// import sunny from './icons/cloudy.svg';
 import { Line } from 'react-chartjs-2';
 
 const Daily = ({dailyTemp , hourTemp}) => {
 
+
+    let knowWeather = dailyTemp.weather[0].main;
+    let getIcon = dailyTemp.weather[0].main.toLowerCase();
+    let source_image = '';
+    const atmosphere = [
+        'Mist',
+        'Smoke',	
+        'Haze',
+        'Dust',	
+        'Fog'	,
+        'Sand',	
+        'Dust',	
+        'Ash'	,
+        'Squall',
+        'Tornado']
+
+    if (knowWeather in atmosphere ) {
+        source_image = "./weather-icons/foggy.svg" ;
+    }
+    else {
+    source_image = "./weather-icons/" + getIcon + ".svg";
+    }
 
 
 let hour_temperature = [];
@@ -126,7 +148,7 @@ const dataTemp = {
                 <div className="temp-value">
                             <p> {Math.floor(dailyTemp.temp)} <span>&#176;</span>C</p>
                 </div>
-                <span className="weather-icon"><img src= {sunny} alt=""/></span>
+                <span className="weather-icon"><img src= {source_image} alt=""/></span>
            </div>
            <div className="chart">
                <div className="temp-chart">
