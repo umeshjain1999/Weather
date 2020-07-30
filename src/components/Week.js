@@ -3,6 +3,11 @@ import Daily from './Daily';
 import Card from './Card'
 
 export const Week = ({locationCurrent}) => {
+    
+    const [indexOfCard, setindexOfCard] = useState(0)
+    const giveMeIndex = (value) => {
+        setindexOfCard(value)
+    }
     const [isLoading , setLoading] = useState(true);
     const [temperature ,setTemperature] = useState([]);
     const [dailyTemp , setdailyTemp] = useState([]);
@@ -84,14 +89,14 @@ export const Week = ({locationCurrent}) => {
    </svg>
                 </div>
             ) : (
-                        <div>
+                        <div className = 'week-daily-container'>
                                 <div className = 'week-container'>
 
                                     <div className="week-section">
                                                                 {temperature.length ?(temperature.map((temperature_day , index) => (
 
 
-                                                                <Card key = {index} temperature = {temperature_day}/>
+                                                                <Card key = {index} temperature = {temperature_day} index = {index} giveMeIndex = {giveMeIndex}/>
                                                                 )))
 
 
@@ -99,8 +104,8 @@ export const Week = ({locationCurrent}) => {
 
                                     </div>
                             
-                            </div>
-                            <Daily dailyTemp = {dailyTemp} hourTemp = {hourTemp}/>
+                                </div>
+                            <Daily dailyTemp = {dailyTemp} hourTemp = {hourTemp} temperature_weekly = {temperature} indexOfCard = {indexOfCard} />
                         </div>
             )}
 

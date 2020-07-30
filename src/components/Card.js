@@ -1,10 +1,17 @@
-import React from 'react';
+import React  from 'react';
+
 
 //Thunderstorm  Drizzle Rain Snow Clear Clouds
 
 
 
-const Card = ({temperature}) => {
+const Card = ({temperature,index , giveMeIndex}) => {
+
+    
+
+  
+
+
     let unixFormat = temperature.dt;
     const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
     const whichDay = new Date(unixFormat * 1000);
@@ -30,28 +37,31 @@ const Card = ({temperature}) => {
     else {
     source_image = "./weather-icons/" + getIcon + ".svg"
     }
-
+const indexNo = () => {
+    giveMeIndex(index);
+}
 
     return (
         
-                <div className = 'week day 1'>
-                    <div className="weekday">
-                        <p> {days[dayNo]} </p>
-                    </div>
-                    <div className="temp">
-                        <p>{Math.floor(temperature.temp.max)}<span>&#176;</span></p>
-                        {/* <p className="light">{temperature.temp.max - Math.floor(temperature.temp.max)}<span>&#176;</span></p>  */}
-                        
-                    </div>
-                    <div className="weather">
-                        
-                           
-                                <span className = 'weather-icon'><img src= {source_image} alt="" /></span>
+                <div className = 'week day 1' onClick = {indexNo}>
+                        <div className="weekday">
+                            <p> {days[dayNo]} </p>
+                        </div>
+                        <div className="temp">
+                            <p>{Math.floor(temperature.temp.max)}<span>&#176;</span></p>
+                            {/* <p className="light">{temperature.temp.max - Math.floor(temperature.temp.max)}<span>&#176;</span></p>  */}
                             
-                        
-                        <p className = 'light'> {temperature.weather[0].main} </p>
-                    </div>
+                        </div>
+                        <div className="weather">
+                            
+                            
+                                    <span className = 'weather-icon'><img src= {source_image} alt= {getIcon} /></span>
+                                
+                            
+                            <p className = 'light'> {temperature.weather[0].main} </p>
+                        </div>
                 </div> 
+                
         
      
     )

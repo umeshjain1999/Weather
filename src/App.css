@@ -16,13 +16,16 @@ body {
     padding: 0;
     margin: 0;
     font-family: 'Open Sans', sans-serif;
+ 
 }
 *{
     box-sizing: border-box;
     font-weight: 700;
 }
 
+
 /* For Search Bar */
+
 
 .search-bar {
     max-width: 100%;
@@ -46,7 +49,8 @@ body {
 .search-bar input {
     border:none;
     width: 100%;
-    height: 20px;
+    height: 25px;
+    margin-top: -15px;
     font-size: 20px;
     padding-left: 10px;
     background-color: var(--bg);
@@ -60,7 +64,19 @@ body {
     width : 24px;
 }
 
+/* Dropdown */
+
+.dropdown {
+    position: relative;
+    z-index: 100;
+    background-color: pink;
+    margin-top: -10px;
+    width: 500px;
+    left: 30%;
+}
+
 /* Weekly data */
+
 .week-container {
     overflow-x: hidden;
     margin: 10px 0px 10px;
@@ -158,6 +174,12 @@ height : 100px;
     justify-content: space-evenly;
     margin-top: 30px;
 }
+.daily .sun-timing {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    margin-left: 20px;
+}
 .properties .prop {
  font-size: 15px;
  background-color: rgb(111, 206, 237,0.1);
@@ -169,13 +191,27 @@ height : 100px;
  padding: 10px;
  width: 140px;
 }
-.properties .prop p {
+.sun-timing .sun {
+    font-size: 15px;
+    border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 10px;
+    width: 140px;
+   } 
+.properties .prop p , .sun p {
     margin-top: 0;
     margin-bottom: 0;
 }
 
-.properties .prop div, .prop div span {
+.properties .prop div, .prop div span , .sun div ,.sun div span {
 font-weight: 600;
+}
+
+.sun div ,.sun div span {
+    color: var(--text-secondary);
 }
 
 
