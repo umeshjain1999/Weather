@@ -92,9 +92,7 @@ export const Week = ({locationCurrent}) => {
 
 
                                                                 <Card key = {index} temperature = {temperature_day}/>
-                                                                ))
-
-                                                                )
+                                                                )))
 
 
                                                                 : ''}

@@ -12,13 +12,11 @@ const Search = ({getLocation}) => {
 
         event.preventDefault();
        
-        const resetvalue = () => setvalue(" ")
 
         if(!value) return;
 
         getLocation(value);
 
-        resetvalue();
 
     }
 

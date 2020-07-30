@@ -1,5 +1,4 @@
 import React from 'react';
-// import sunny from './icons/cloudy.svg';
 import { Line } from 'react-chartjs-2';
 
 const Daily = ({dailyTemp , hourTemp}) => {
