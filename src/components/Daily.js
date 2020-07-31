@@ -105,8 +105,8 @@ const dataTemp = {
   };
 
 // Chart for sunrise sunset
-const difference = temperature_weekly[indexOfCard].sunset - temperature_weekly[indexOfCard].sunrise;
-const unix_time = Array(difference).fill(1).map((x,y) => x + y);
+// const difference = temperature_weekly[indexOfCard].sunset - temperature_weekly[indexOfCard].sunrise;
+// const unix_time = Array(difference).fill(1).map((x,y) => x + y);
 
 
  
