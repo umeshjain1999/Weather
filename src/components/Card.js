@@ -48,8 +48,8 @@ const indexNo = () => {
                             <p> {days[dayNo]} </p>
                         </div>
                         <div className="temp">
-                            <p>{Math.floor(temperature.temp.max)}<span>&#176;</span></p>
-                            {/* <p className="light">{temperature.temp.max - Math.floor(temperature.temp.max)}<span>&#176;</span></p>  */}
+                            <p>{Math.floor(temperature.temp.day)}<span>&#176;</span></p>
+                            {/* <p className="light">{temperature.temp.day - Math.floor(temperature.temp.day)}<span>&#176;</span></p>  */}
                             
                         </div>
                         <div className="weather">

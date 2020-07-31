@@ -74,6 +74,7 @@ const dataTemp = {
       display : false,
   };
   const optionsTemp = {
+    responsive : true,
      maintainAspectRatio: false ,
 
      scales: {
@@ -104,59 +105,82 @@ const dataTemp = {
   };
 
 // Chart for sunrise sunset
+const difference = temperature_weekly[indexOfCard].sunset - temperature_weekly[indexOfCard].sunrise;
+const unix_time = Array(difference).fill(1).map((x,y) => x + y);
 
+
+ 
 const dataSun = {
-    labels: ["6am", "7am", "8am", 
-    "9am", "10am", "11am", "12pm", "1pm", "2pm",
-    "3pm", "4pm", "5pm","6pm", "7pm", "8pm"],
+    labels: ["6am", "8am", "10am","1pm", "3pm", "6pm","8pm"],
     datasets: [
+        { label: 'set',
+        data: [-100,-10,0,0,0,-10,-100], 
+        fill : true,
+        lineTension : 0.5,
+        backgroundColor : 'rgba(150, 149, 147,0.5)',
+        borderColor: '#969593',
+        pointBackgroundColor:"#969593",
+        pointBorderColor:"#969593",
+        pointRadius : 0,
+        pointHoverRadius: 0},
     
       {
-        label: '',
-        data: [-6,0,1,2,3,4,5,6,5,4,3,2,1,0,-6], 
+        label: 'rise',
+        data: [-100,-10,10,100,10,-10,-100,], 
         fill : true,
-        lineTension : 0.1,
-        backgorundColor : '#ffe634',
-        borderColor: '#ffe634',
-        pointBackgroundColor:"#ffe634",
-        pointBorderColor:"#ffe634",
-        pointRadius : 1,
-        pointHoverRadius: 1
-      }
+        lineTension : 0.5,
+        backgroundColor : 'rgba(255, 230, 52,0.5)',
+        borderColor: 'rgb(255, 230, 52,0.7)',
+        pointBackgroundColor:"rgba(255, 230, 52,0.8)",
+        pointBorderColor:"rgba(255, 230, 52,1)",
+        pointRadius : [0,0,0,15,0,0,0,],
+        pointHoverRadius: [0,0,0,15,0,0,0,],
+      },
     ]
   };
     const legendSun = {
         display : false,
     };
-
+  
   const optionsSun = {
-    maintainAspectRatio: false ,
-
-    
+    responsive : true,
+    maintainAspectRatio:false ,
+  
+    tooltips : {
+        enabled : false,
+    },
+  
     scales: {
-        xAxes: [{
-           scaleLabel: {
-              display: false,
-              
-           },
-           gridLines: {
-              display: false,
-              drawBorder: false 
-           },
-           ticks : {
-               display : false,
-           }
-        }],
-        yAxes: [{
-           gridLines: {
-              display: false,
-              drawBorder: false 
-           },
-           ticks : {
-               display :false,
-           },
-        }]
-     }
+      xAxes: [{
+         scaleLabel: {
+            display: false,
+            
+         },
+         gridLines: {
+            display: false,
+            drawBorder: false 
+         },
+         ticks : {
+         
+             display : false,
+         }
+      }],
+      yAxes: [{
+         gridLines: {
+            display: false,
+            drawBorder: false 
+         },
+         ticks : {
+          
+             display :false,
+             max : 130,
+             min : -100,
+             stepSize : 1000
+         },
+      }]
+   }
+  
+       
   };
 
 const sunTiming = (value) => {
@@ -193,7 +217,7 @@ const sunTiming = (value) => {
         <div className = 'daily'>
            <div className="temp-degree">
                 <div className="temp-value">
-                            <p> {Math.floor(temperature_weekly[indexOfCard].temp.max)} <span>&#176;</span>C</p>
+                            <p> {Math.floor(temperature_weekly[indexOfCard].temp.day)} <span>&#176;</span>C</p>
                 </div>
                 <span className="weather-icon"><img src= {source_image} alt= {getIcon}/></span>
            </div>
