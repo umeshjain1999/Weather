@@ -178,7 +178,7 @@ height : 100px;
     display: flex;
     justify-content: space-between;
     margin-top: 30px;
-    margin-left: 20px;
+    margin-left: 50px;
 }
 .properties .prop {
  font-size: 15px;
@@ -225,6 +225,11 @@ font-weight: 600;
     scrollbar-width: 1px;
 }
 
+
+.sunchart {
+    margin-top: -50px;
+}
+
 /* Media Query */
 @media screen and (max-width : 1250px) {
 
@@ -255,6 +260,10 @@ font-weight: 600;
     height: 150px;
     min-width: 100px;
 }
+.daily {
+    height: calc(150px + 300px + 100px + 180px);
+}
+
 
 .daily .temp-degree img {
     width : 60px;
