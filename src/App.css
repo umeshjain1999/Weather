@@ -72,17 +72,18 @@ body {
     background-color: var(--bg);
     box-shadow: var(--shadow);
     margin-top: -12px;
-    margin-left: 20px;
-    width: 500px;
-    padding: 10px;
+    /* margin-left: 20px; */
+    /* width: 500px; */
+    padding: 10px 50px 10px;
     border-radius: 10px;
-    min-width:100px; 
+    max-width:100%; 
 }
 
 .dropdown .city-name {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    cursor: pointer;
 }
 
 /* Weekly data */
@@ -257,10 +258,10 @@ font-weight: 600;
 .search-bar {
     height: 40px;
 }
-
+/* 
 .dropdown{
     width: 400px;
-}
+} */
 
 .week-container {
     overflow-x: scroll;
@@ -298,8 +299,8 @@ padding-top: 2px;
 }
 
 
-@media screen and (max-width : 500px){
+/* @media screen and (max-width : 500px){
     .dropdown {
         width: 200px;
     }
-}
+} */

@@ -10,6 +10,7 @@ const Search = ({getLocation}) => {
     const [value , setvalue] = useState('');
     const [showOption, setshowOption] = useState(false);
     const [cityNames, setcityNames] = useState([]);
+    const [isLoading, setisLoading] = useState(true)
 
  
 
@@ -36,14 +37,16 @@ const Search = ({getLocation}) => {
 
             check.then(
                 (msg)=> {
-                    console.log(msg.slice(0,5));
+                   
+
 
                     setcityNames(msg.slice(0,5));
+                    setisLoading(false);
 
                     
                 } 
             )
-            .catch(()=>console.log('purrrr'))
+            .catch(()=>console.log('Fetching error'))
         
         }
     }
@@ -77,8 +80,12 @@ const Search = ({getLocation}) => {
             {showOption && <div className="dropdown">
                         {
                             cityNames.map((name , index) => {
-                                return <Dropdown key = {index} name = {name.title} value = {valueFun} 
-                                afterClickDropdownState = {afterClickDropdownState} woeid = {name.woeid} getLocation = {getLocation}/>
+                                return ((isLoading)?(<div
+                                style = {{
+                                    color : 'grey',
+                                }}
+                                >Loading...</div>):(<Dropdown key = {index} name = {name.title} value = {valueFun} 
+                                afterClickDropdownState = {afterClickDropdownState} woeid = {name.woeid} getLocation = {getLocation}/>))
                             })
                         }
                             </div>}
@@ -89,6 +96,7 @@ const Search = ({getLocation}) => {
 
 function Dropdown(props) {
 const [temp, settemp] = useState(null);
+const [check , setcheck] = useState(true);
 
 
     const blah = () => {
@@ -109,9 +117,10 @@ const [temp, settemp] = useState(null);
         const getTemp = fetchTemp(apiURLwoeid)
         getTemp.then(
             (msg) => {
-                    console.log(msg.consolidated_weather[0].the_temp);
+                
                     const convertToFloor = Math.floor(msg.consolidated_weather[0].the_temp);
-                    settemp(convertToFloor)
+                    settemp(convertToFloor);
+                    setcheck(false);
 
             }
         )
@@ -126,7 +135,9 @@ return (
     <div className = 'city-name' onClick = {blah}>
 
         <div className="dropdown-city-name"> {props.name} </div>
-        <div className="dropdown-city-temp"><p>{temp}<span>&#176;</span>C</p></div>
+        {(check)?(
+            <div>🦄</div>
+        ):(<div className="dropdown-city-temp"><p>{temp}<span>&#176;</span>C</p></div>)}
         
     </div>
   
