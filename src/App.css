@@ -84,6 +84,7 @@ body {
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
+    border-bottom: 2px solid rgba(150, 149, 147,0.1);
 }
 
 /* Weekly data */
@@ -112,10 +113,13 @@ body {
     cursor: pointer;
 }
 
-.week:active {
+
+.haha {
+
     border: 2px solid var(--cloudy);
     border-radius: 0;
 }
+
 
 .week .weekday p {
 font-size: 15px;

@@ -13,6 +13,7 @@ const Card = ({temperature,index , giveMeIndex}) => {
 
 
     let unixFormat = temperature.dt;
+
     const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
     const whichDay = new Date(unixFormat * 1000);
     const dayNo =  whichDay.getDay();
@@ -37,14 +38,28 @@ const Card = ({temperature,index , giveMeIndex}) => {
     else {
     source_image = "./weather-icons/" + getIcon + ".svg"
     }
+
+   
 const indexNo = () => {
+    const x = document.querySelectorAll('.week');
+    x.forEach(function(el) {
+        el.classList.remove("haha")
+      })
+    document.querySelector('.day'+ index).classList.add('haha');
     giveMeIndex(index);
+    
 }
 
+ 
     return (
         
-                <div className = 'week day 1' onClick = {indexNo}>
-                        <div className="weekday">
+                <div className = {'week day' + index } onClick = {indexNo} 
+                
+                
+                >
+                    <div >
+                        
+                    <div className="weekday">
                             <p> {days[dayNo]} </p>
                         </div>
                         <div className="temp">
@@ -60,6 +75,7 @@ const indexNo = () => {
                             
                             <p className = 'light'> {temperature.weather[0].main} </p>
                         </div>
+                    </div>
                 </div> 
                 
         

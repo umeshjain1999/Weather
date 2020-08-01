@@ -107,6 +107,11 @@ const [check , setcheck] = useState(true);
 
 
     useEffect(() => {
+        //to remove border of selected card
+        //     const x = document.querySelectorAll('.week');
+        // x.forEach(function(el) {
+        //     el.classList.remove("haha")
+        // })
         const fetchTemp = async (endpoint) => {       
             const res_woeid = await fetch(endpoint);
             const data_woeid = res_woeid.json();
