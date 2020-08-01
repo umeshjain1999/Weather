@@ -77,7 +77,7 @@ const Search = ({getLocation}) => {
                 <div className = 'search-bar'>
                     <div className="search-location"><img src={gps} alt="" /></div>
                     <form className = 'search-form' onSubmit = {onSubmitForm}>
-                                <input className = 'search-input' type="text" onChange = {handleChange} value = {value} onClick= {giveMeBorder}/>
+                                <input className = 'search-input' type="text" onChange = {handleChange} value = {value} onClick= {giveMeBorder} placeholder = 'Search'/>
                     </form>
                     <div className="search-glass"><img src={search} alt="" /></div>
                 </div>

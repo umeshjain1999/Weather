@@ -49,7 +49,7 @@ const indexNo = () => {
     giveMeIndex(index);
     
 }
-
+const decimalNo = Number(temperature.temp.day - Math.floor(temperature.temp.day)).toFixed(2);
  
     return (
         
@@ -57,14 +57,16 @@ const indexNo = () => {
                 
                 
                 >
-                    <div >
+                    <div className = 'week-day-container'>
                         
-                    <div className="weekday">
+                        <div className="weekday">
                             <p> {days[dayNo]} </p>
                         </div>
                         <div className="temp">
                             <p>{Math.floor(temperature.temp.day)}<span>&#176;</span></p>
-                            {/* <p className="light">{temperature.temp.day - Math.floor(temperature.temp.day)}<span>&#176;</span></p>  */}
+                                
+                            
+                            <p className="light">{decimalNo*100}<span>&#176;</span></p> 
                             
                         </div>
                         <div className="weather">

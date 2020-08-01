@@ -51,6 +51,13 @@ else {
 
 // Temperature chart
 
+// const chart    = document.getElementById('chart').getContext('2d'),
+//     gradient = chart.createLinearGradient(0, 0, 0, 400);
+
+// gradient.addColorStop(0, 'rgba(255, 0,0, 0.5)');
+// gradient.addColorStop(0.5, 'rgba(255, 0, 0, 0.25)');
+// gradient.addColorStop(1, 'rgba(255, 0, 0, 0)');
+
 const dataTemp = {
     labels: [ "1pm", "2pm",
     "3pm", "4pm", "5pm","6pm", "7pm", "8pm",
@@ -61,12 +68,16 @@ const dataTemp = {
       {
         label: '',
         data: chart_hours, //timing hourly based
-        fill: false,
-        borderColor: '#6fceed',
+        fill: true,
+        backgroundColor : 'rgba(203,237,254,0.2)',
+        borderColor: '#00a6fa',
         pointBackgroundColor:"rgb(255, 255, 255)",
-        pointBorderColor:"#6fceed",
-        pointRadius : 10,
-        pointHoverRadius: 10
+        pointBorderColor:"#00a6fa",
+        pointHoverBackgroundColor:"#00a6fa",
+        pointHoverBorderColor:"rgb(255, 255, 255)",
+        pointRadius : 5,
+        pointHoverRadius: 6
+        
       }
     ]
   };
