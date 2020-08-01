@@ -89,7 +89,7 @@ export const Week = ({locationCurrent}) => {
    </svg>
                 </div>
             ) : (
-                        <div className = 'week-daily-container'>
+                        <div className = 'week-daily-container' onClick = {() => document.querySelector('.search-bar').classList.remove('give-me-border')}>
                                 <div className = 'week-container'>
 
                                     <div className="week-section">

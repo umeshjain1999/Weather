@@ -214,7 +214,7 @@ const sunTiming = (value) => {
     
 } 
     return (
-        <div className = 'daily'>
+        <div className = 'daily' onClick = {() => document.querySelector('.search-bar').classList.remove('give-me-border')}>
            <div className="temp-degree">
                 <div className="temp-value">
                             <p> {Math.floor(temperature_weekly[indexOfCard].temp.day)} <span>&#176;</span>C</p>

@@ -12,6 +12,9 @@ const Search = ({getLocation}) => {
     const [cityNames, setcityNames] = useState([]);
     const [isLoading, setisLoading] = useState(true)
 
+    const giveMeBorder = () => {
+        document.querySelector('.search-bar').classList.add('give-me-border');
+    }
  
 
     const onSubmitForm = (event) => {
@@ -24,6 +27,7 @@ const Search = ({getLocation}) => {
 
         getLocation(value);
         setshowOption(false);
+        document.querySelector('.search-bar').classList.remove('give-me-border');
     }
 
     const handleChange = (e) => {
@@ -65,6 +69,7 @@ const Search = ({getLocation}) => {
         setshowOption(false)
     }
 
+
     return (
         <div className = 'search-dropdown'>
             <div className = 'search'>
@@ -72,7 +77,7 @@ const Search = ({getLocation}) => {
                 <div className = 'search-bar'>
                     <div className="search-location"><img src={gps} alt="" /></div>
                     <form className = 'search-form' onSubmit = {onSubmitForm}>
-                                <input className = 'search-input' type="text" onChange = {handleChange} value = {value} />
+                                <input className = 'search-input' type="text" onChange = {handleChange} value = {value} onClick= {giveMeBorder}/>
                     </form>
                     <div className="search-glass"><img src={search} alt="" /></div>
                 </div>
@@ -100,9 +105,10 @@ const [check , setcheck] = useState(true);
 
 
     const blah = () => {
-        props.value(props.name)
-        props.afterClickDropdownState()
-        props.getLocation(props.name)
+        props.value(props.name);
+        props.afterClickDropdownState();
+        props.getLocation(props.name);
+        document.querySelector('.search-bar').classList.remove('give-me-border');
         }
 
 

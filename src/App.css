@@ -8,7 +8,7 @@
     --text-primary :#000001 ;
     --text-secondary :#969593 ;
     --shadow : -2px 6px 15px 7px rgba(233,233,234,1);
-
+    
 }
 
 body {
@@ -16,13 +16,16 @@ body {
     padding: 0;
     margin: 0;
     font-family: 'Open Sans', sans-serif;
- 
+    
 }
 *{
     box-sizing: border-box;
     font-weight: 700;
 }
 
+.light {
+color: var(--text-secondary);
+}
 
 /* For Search Bar */
 
@@ -38,6 +41,10 @@ body {
     border-radius: 10px;
     box-shadow: var(--shadow);
     color: var(--text-primary);
+}
+
+.give-me-border {
+    border: 2px solid var(--cloudy);
 }
 .search-bar:hover {
     box-shadow:-2px 6px 22px 10px rgba(233,233,234,1); 
@@ -141,9 +148,6 @@ font-size: 15px;
     font-size: 13px;
 }
 
-.light {
-color: var(--text-secondary);
-}
 
 
 .week img {
