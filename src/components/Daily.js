@@ -69,14 +69,14 @@ const dataTemp = {
         label: '',
         data: chart_hours, //timing hourly based
         fill: true,
-        backgroundColor : 'rgba(203,237,254,0.2)',
+        backgroundColor : 'rgba(203,237,254,0.5)',
         borderColor: '#00a6fa',
         pointBackgroundColor:"rgb(255, 255, 255)",
         pointBorderColor:"#00a6fa",
         pointHoverBackgroundColor:"#00a6fa",
         pointHoverBorderColor:"rgb(255, 255, 255)",
         pointRadius : 5,
-        pointHoverRadius: 6
+        pointHoverRadius: 7
         
       }
     ]

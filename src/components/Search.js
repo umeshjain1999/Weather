@@ -97,8 +97,8 @@ const Search = ({getLocation}) => {
                                             style = {{
                                                 color : 'grey',
                                             }}
-                                            >Loading...</div>):(<Dropdown key = {index} name = {name.title} latt_long = {name.latt_long} value = {valueFun} 
-                                            afterClickDropdownState = {afterClickDropdownState} woeid = {name.woeid} getLocation = {getLocation} 
+                                            >Loading...</div>):(<Dropdown key = {index} name = {name.title} latt_long = {name.latt_long} value_submit = {valueFun} 
+                                            afterClickDropdownState = {afterClickDropdownState}  getLocation = {getLocation} 
                                             />))
                                         })
                                     }
@@ -120,7 +120,7 @@ const [check , setcheck] = useState(true);
 
 
     const blah = () => {
-        props.value(props.name);
+        props.value_submit(props.name);
         props.afterClickDropdownState();
         props.getLocation(props.name);
         document.querySelector('.search-bar').classList.remove('give-me-border');
@@ -162,7 +162,7 @@ const [check , setcheck] = useState(true);
 return (
 
     <div className = 'city-name' onClick = {blah}>
-        
+       
 
         <div className="dropdown-city-name"> {props.name} </div>
         {(check)?(
