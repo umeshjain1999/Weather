@@ -8,6 +8,7 @@
     --text-primary :#000001 ;
     --text-secondary :#969593 ;
     --shadow : 0 8px 10px -3px rgba(0,0,0,0.1),0 4px 6px -2px rgba(0,0,0,0.1),0 -8px 12px 0px rgba(0,0,0,0.05),0 -2px 3px -2px rgba(0,0,0,0.01);
+    --dark-shadow : 0 8px 10px -3px rgba(255,255,255,0.1),0 4px 6px -2px rgba(255,255,255,0.1),0 -8px 12px 0px rgba(255,255,255,0.05),0 -2px 3px -2px rgba(255,255,255,0.01);
     --after-shadow :-0.5px 0.5px 2px 2px rgb(41,180,251);
 }
 
@@ -94,6 +95,29 @@ box-shadow: var(--after-shadow);
     align-items: center;
     cursor: pointer;
     border-bottom: 2px solid rgba(150, 149, 147,0.1);
+}
+.dropdown .dropdown-city-temp {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.dropdown-city-temp .dropdown-icon{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+}
+.dropdown-city-temp p {
+    margin-right: 10px;
+}
+.dropdown-icon .dropdown-weather {
+    font-size: 14px;
+}
+
+.dropdown .city-name .dropdown-icon img {
+    width: 24px;
+    height: 24px;
 }
 
 /* Weekly data */
@@ -213,7 +237,7 @@ height : 100px;
 .properties .prop {
  font-size: 15px;
  background-color: rgb(111, 206, 237,0.1);
- border-radius: 3px;
+ border-radius: 0px;
  display: flex;
  flex-direction: column;
  justify-content: space-between;

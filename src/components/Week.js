@@ -39,7 +39,7 @@ export const Week = ({locationCurrent}) => {
 // Fetching data from Openweather API
     const fetchWeather = async () => {
         const data = await fetch("https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + 
-        "&units=metric&appid=f8421952e2b44732a95ded031763159e");
+        "&units=metric&appid=e91d990e106eaa805869a51fd82265f5");
         const response = data.json();
         return response;
     }

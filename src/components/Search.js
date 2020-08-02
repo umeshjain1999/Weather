@@ -10,7 +10,11 @@ const Search = ({getLocation}) => {
     const [value , setvalue] = useState('');
     const [showOption, setshowOption] = useState(false);
     const [cityNames, setcityNames] = useState([]);
-    const [isLoading, setisLoading] = useState(true)
+    const [isLoading, setisLoading] = useState(true);
+
+
+    
+  
 
     const giveMeBorder = () => {
         document.querySelector('.search-bar').classList.add('give-me-border');
@@ -45,6 +49,8 @@ const Search = ({getLocation}) => {
 
 
                     setcityNames(msg.slice(0,5));
+                 
+
                     setisLoading(false);
 
                     
@@ -68,6 +74,7 @@ const Search = ({getLocation}) => {
     const afterClickDropdownState = () => {
         setshowOption(false)
     }
+    
 
 
     return (
@@ -82,18 +89,23 @@ const Search = ({getLocation}) => {
                     <div className="search-glass"><img src={search} alt="" /></div>
                 </div>
             </div>
-            {showOption && <div className="dropdown">
-                        {
-                            cityNames.map((name , index) => {
-                                return ((isLoading)?(<div
-                                style = {{
-                                    color : 'grey',
-                                }}
-                                >Loading...</div>):(<Dropdown key = {index} name = {name.title} value = {valueFun} 
-                                afterClickDropdownState = {afterClickDropdownState} woeid = {name.woeid} getLocation = {getLocation}/>))
-                            })
-                        }
-                            </div>}
+            {showOption && <div>
+                    {(isLoading)?(<div></div>):(<div className="dropdown">
+                                    {
+                                        cityNames.map((name , index) => {
+                                            return ((isLoading)?(<div
+                                            style = {{
+                                                color : 'grey',
+                                            }}
+                                            >Loading...</div>):(<Dropdown key = {index} name = {name.title} latt_long = {name.latt_long} value = {valueFun} 
+                                            afterClickDropdownState = {afterClickDropdownState} woeid = {name.woeid} getLocation = {getLocation} 
+                                            />))
+                                        })
+                                    }
+                                </div>)}
+                            </div>
+                            
+                            }
         </div>
     );
 }
@@ -101,7 +113,10 @@ const Search = ({getLocation}) => {
 
 function Dropdown(props) {
 const [temp, settemp] = useState(null);
+const [weather_icon , setweather_icon] = useState(null);
 const [check , setcheck] = useState(true);
+
+
 
 
     const blah = () => {
@@ -113,29 +128,32 @@ const [check , setcheck] = useState(true);
 
 
     useEffect(() => {
-        //to remove border of selected card
-        //     const x = document.querySelectorAll('.week');
-        // x.forEach(function(el) {
-        //     el.classList.remove("haha")
-        // })
-        const fetchTemp = async (endpoint) => {       
-            const res_woeid = await fetch(endpoint);
-            const data_woeid = res_woeid.json();
-            return data_woeid;
-        }
-        const proxyUrlwoeid = 'https://cors-anywhere.herokuapp.com/';
-        const apiURLwoeid = proxyUrlwoeid + "https://www.metaweather.com/api/location/" + props.woeid;
-        const getTemp = fetchTemp(apiURLwoeid)
-        getTemp.then(
-            (msg) => {
-                
-                    const convertToFloor = Math.floor(msg.consolidated_weather[0].the_temp);
-                    settemp(convertToFloor);
-                    setcheck(false);
+                            
 
-            }
-        )
-        .catch(() => console.log('Could not fetch temperature'))
+                            const location = props.latt_long;
+                            const loc_arr = location.split(',');
+                            
+
+                            const fetchWeather = async () => {
+                                const data = await fetch("https://api.openweathermap.org/data/2.5/onecall?lat=" + parseInt(loc_arr[0]) + "&lon=" + parseInt(loc_arr[1]) + 
+                                "&units=metric&appid=e91d990e106eaa805869a51fd82265f5" );
+                                const response = data.json();
+                                return response;
+                            }
+
+                            let weather = fetchWeather()
+                             weather.then((week_temp) => {
+                                
+                                settemp(week_temp.current.temp);
+                                setweather_icon(week_temp.current.weather[0].main);
+                            
+                                setcheck(false);
+                                
+
+                            })   
+
+                       
+   
     },[])
 
 
@@ -144,11 +162,21 @@ const [check , setcheck] = useState(true);
 return (
 
     <div className = 'city-name' onClick = {blah}>
+        
 
         <div className="dropdown-city-name"> {props.name} </div>
         {(check)?(
-            <div>🦄</div>
-        ):(<div className="dropdown-city-temp"><p>{temp}<span>&#176;</span>C</p></div>)}
+            <div><span className = 'light'>&#8634;</span></div>
+        ):(
+        
+        <div className="dropdown-city-temp">
+            <div className="dropdown-icon">
+                <span><img src= {'./weather-icons/'+ weather_icon.toLowerCase() +'.svg'} alt=""/></span>
+                <div className = 'dropdown-weather light'>{weather_icon}</div>
+            </div>
+            <p>{Math.floor(temp)}<span>&#176;</span>C</p>
+        </div>)
+        }
         
     </div>
   

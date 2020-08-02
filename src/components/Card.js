@@ -66,7 +66,7 @@ const decimalNo = Number(temperature.temp.day - Math.floor(temperature.temp.day)
                             <p>{Math.floor(temperature.temp.day)}<span>&#176;</span></p>
                                 
                             
-                            <p className="light">{decimalNo*100}<span>&#176;</span></p> 
+                            <p className="light">{Math.floor(decimalNo*100)}<span>&#176;</span></p> 
                             
                         </div>
                         <div className="weather">
