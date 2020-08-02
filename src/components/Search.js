@@ -2,6 +2,7 @@ import React , {useState, useEffect} from 'react';
 import search from './icons/search.svg';
 import gps from './icons/gps.svg';
 import '../App.css';
+import Highlighter from "react-highlight-words";
 import { findByLabelText } from '@testing-library/react';
 
 
@@ -98,7 +99,7 @@ const Search = ({getLocation}) => {
                                                 color : 'grey',
                                             }}
                                             >Loading...</div>):(<Dropdown key = {index} name = {name.title} latt_long = {name.latt_long} value_submit = {valueFun} 
-                                            afterClickDropdownState = {afterClickDropdownState}  getLocation = {getLocation} 
+                                            afterClickDropdownState = {afterClickDropdownState}  getLocation = {getLocation} value = {value}
                                             />))
                                         })
                                     }
@@ -115,8 +116,16 @@ function Dropdown(props) {
 const [temp, settemp] = useState(null);
 const [weather_icon , setweather_icon] = useState(null);
 const [check , setcheck] = useState(true);
+const searchArr = props.value; 
+
+//   if(props.name.inlcudes(props.value)){
+      
+//       const indexOfLetter = props.name.search(props.value);
+//       const nameArr = Array.from(props.name);
+//       const findLetter = nameArr[indexOfLetter];
 
 
+//   }
 
 
     const blah = () => {
@@ -164,7 +173,29 @@ return (
     <div className = 'city-name' onClick = {blah}>
        
 
-        <div className="dropdown-city-name"> {props.name} </div>
+
+        <div className="dropdown-city-nam light" style = {{
+            fontWeight : 400
+        }}> 
+                    <Highlighter
+                highlightClassName="YourHighlightClass"
+                searchWords={[searchArr]}
+                highlightStyle = {{
+                    backgroundColor : '#f4f5f2'
+                  }}
+                autoEscape={true}
+                activeIndex = {0}
+                activeStyle = {
+                {   color: '#000001',
+                    fontWeight : 700,
+                    backgroundColor : '#f4f5f2',
+                    
+                }
+                }
+                textToHighlight={props.name}
+            />
+        
+        </div>
         {(check)?(
             <div><span className = 'light'>&#8634;</span></div>
         ):(
