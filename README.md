@@ -1,20 +1,20 @@
-## Weather App 🌩
+# Weather App 🌩
 With one click to enable GPS location and receive the weather condition in your current location.<br/>
 Weather provides detailed current weather forecasts and weather observations for all the cities around the world. Weather also provides sunrise/sunset times according to city, atmospheric pressure, and humidity. This application allows you to find out a detailed forecast wherever you are, for any time of the day or for next the <b>7 days</b> just by tapping on a specific day. 
 #### [here](https://weather-umeshjain.netlify.app/)
 
 
-### Motivation
+## Motivation
 This weather application was the assignment given to me by some company that I had to complete within 2 days. It was an amazing experience and I learned many things.
 
-### Technology 
+## Technology 
 - <b>Built with</b> -> [Reactjs](https://reactjs.org/)
 - <b>Other libraries</b> -> [Chartjs](https://github.com/jerairrest/react-chartjs-2), [Highlight words](https://www.npmjs.com/package/react-highlight-words)
 - <b>API used for fetching weather details</b> -> [OpenWeather](https://openweathermap.org/api), [MetaWeather](https://www.metaweather.com/api/)
 - <b>Editor used</b> -> [vscode](https://code.visualstudio.com/) , [codesandbox](https://codesandbox.io/)
 - <b>Hosting</b> -> [netlify](https://app.netlify.com/)
 
-### Features
+## Features
 - Using GPS this app provides you a detailed forecast of your current location.
 - Using the search bar of this app you can search for any city around the world.
 - Different types of weather also visualize using icons.
@@ -24,7 +24,7 @@ This weather application was the assignment given to me by some company that I h
 - The weather app also provides a detailed forecast for any time of the day which is shown via a beautiful and responsive graph.
 - This app also provides pressure, humidity, sunrise/sunset timing for all the searches.
 
-### How I created this project
+## How I created this project
 - All-weather information are fetched using Weather API. 
 - I have used useState and useEffect to manage the data across the components in Reactjs.
 - The suggestion of the city in the search bar is fetched from API and Highlighting specific words is done by a [library](https://www.npmjs.com/package/react-highlight-words).
@@ -55,12 +55,12 @@ This weather application was the assignment given to me by some company that I h
     setLoading(false)
   }
 ```
-### Credits
+## Credits
 Wonderful weather icons - [Rasmus Nielsen](https://www.iconfinder.com/iconsets/weatherful?utm_source=sharing-feature&utm_medium=social&utm_campaign=sharing-feature&utm_content=link) <br>
 Loading spinner - [Sam Herbert](https://github.com/SamHerbert/SVG-Loaders) on github.<br>
 Font - [Open Sans](https://fonts.google.com/specimen/Open+Sans?selection.family=Open+Sans) (400,600,700) Designed by Steve Matteson
 
 
 
-### License
+## License
 MIT
